@@ -11,3 +11,18 @@
   background: none;
   border: 0;
 }
+
+.basketTotalIcon {
+  position: absolute;
+  bottom: -2px;
+  left: 20px;
+  border: 0;
+  width: 16px;
+  height: 16px;
+  font-size: x-small;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 100%;
+  line-height: 16px;
+  background-color: var(--sohoLights);
+}

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
+import { useBasketContext } from "../../hooks/useBasketContext";
 import { formatPrice } from "../../utils/formatPrice";
 import styles from "./ProductCard.module.css";
 import localeStrings from "./strings.en-GB.json";
@@ -21,6 +22,7 @@ const ProductCard = ({
   price,
   img_url,
 }: ProductCardProps) => {
+  const { addToBasket } = useBasketContext();
   const [currentQuantity, setCurrentQuantity] = useState(1);
 
   const handleIncrement = () => {
@@ -36,7 +38,12 @@ const ProductCard = ({
   };
 
   const handleAddToBasket = () => {
-    window.alert("Not Implemented!");
+    addToBasket({
+      id,
+      name,
+      quantity: currentQuantity,
+      img_url,
+    });
   };
 
   return (

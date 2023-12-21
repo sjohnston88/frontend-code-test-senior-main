@@ -1,9 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useBasketContext } from "../../hooks/useBasketContext";
 import styles from "./Header.module.css";
 import localeStrings from "./strings.en-GB.json";
 
 const Header = () => {
+  const { basketTotal } = useBasketContext();
+
   return (
     <div className={styles.header}>
       <Link href="/">
@@ -21,6 +24,14 @@ const Header = () => {
           width="32"
           height="32"
         />
+        {basketTotal > 0 && (
+          <span
+            className={styles.basketTotalIcon}
+            title={localeStrings.basketCount}
+          >
+            {basketTotal}
+          </span>
+        )}
       </button>
     </div>
   );
