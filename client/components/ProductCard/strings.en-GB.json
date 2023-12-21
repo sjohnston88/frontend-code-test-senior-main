@@ -1,0 +1,8 @@
+{
+  "quantity": "Qty",
+  "quantityPlural": "Packet of",
+  "callToAction": "Add to cart",
+  "increment": "Increase quantity",
+  "decrement": "Decrease quantity",
+  "currentQuantity": "Current quantity"
+}

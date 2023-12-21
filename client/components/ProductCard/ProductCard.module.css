@@ -1,0 +1,107 @@
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: var(--defaultGutter);
+}
+
+.card h1 {
+  font-weight: 500;
+}
+
+.image {
+  border: 0px;
+  border-radius: var(--defaultRadius);
+}
+
+.detail {
+  font-size: small;
+  color: var(--purpleHaze);
+  font-weight: 500;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--defaultGutter) 0;
+}
+
+.price {
+  font-size: large;
+  font-weight: 500;
+}
+
+.quantityContainer {
+  font-size: x-small;
+  font-weight: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.quantity {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.currentQuantityContainer {
+  text-align: center;
+  width: 20px;
+  font-size: medium;
+  font-weight: 600;
+}
+
+.quantityButton {
+  width: 24px;
+  height: 24px;
+  background-color: var(--sohoLights);
+  border-radius: calc(var(--defaultRadius) / 1.5);
+  color: var(--plum);
+  border: 0;
+  font-weight: 600;
+}
+
+.quantityButton:hover {
+  background-color: var(--purpleHaze);
+}
+
+.quantityButton:disabled {
+  background-color: var(--plum);
+  color: var(--ice);
+}
+
+.button {
+  width: 100%;
+  padding: calc(var(--defaultGutter) / 1.5);
+  background-color: var(--sohoLights);
+  border-radius: calc(var(--defaultRadius) / 1.5);
+  color: var(--plum);
+  border: 0;
+  font-weight: 600;
+}
+
+.button:hover {
+  background-color: var(--purpleHaze);
+}
+
+@media only screen and (min-width: 768px) {
+  .card {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: var(--defaultGutter);
+    padding: var(--defaultGutter);
+    place-content: center;
+  }
+
+  .imageContainer {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+  }
+}
