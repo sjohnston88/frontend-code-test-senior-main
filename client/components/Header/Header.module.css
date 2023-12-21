@@ -1,0 +1,13 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--defaultGutter);
+}
+
+.basketIconButton {
+  position: relative;
+  background: none;
+  border: 0;
+}

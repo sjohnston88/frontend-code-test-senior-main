@@ -1,0 +1,9 @@
+.footer {
+  width: 100%;
+  padding: var(--defaultGutter);
+  background-color: var(--hemocyanin);
+  color: var(--purpleHaze);
+  font-size: small;
+  line-height: 150%;
+  font-weight: 200;
+}
