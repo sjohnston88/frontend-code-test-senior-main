@@ -5,12 +5,16 @@ import type { BasketContextReturn, BasketItem } from ".";
 export const initialBasketContext = {
   basket: [],
   basketTotal: 0,
+  isBasketOpen: false,
   addToBasket: () => null,
+  openBasketModal: () => null,
+  closeBasketModal: () => null,
 };
 
 export const initialBasketState = {
   basket: [],
   basketTotal: 0,
+  isBasketOpen: false,
 };
 
 export const BasketContext =
@@ -23,12 +27,23 @@ export const BasketProvider = ({ children }) => {
     dispatch({ type: "ADD_PRODUCT", payload: product });
   };
 
+  const openBasketModal = () => {
+    dispatch({ type: "OPEN_MODAL" });
+  };
+
+  const closeBasketModal = () => {
+    dispatch({ type: "CLOSE_MODAL" });
+  };
+
   return (
     <BasketContext.Provider
       value={{
         basket: state.basket,
         basketTotal: state.basketTotal,
+        isBasketOpen: state.isBasketOpen,
         addToBasket,
+        openBasketModal,
+        closeBasketModal,
       }}
     >
       {children}

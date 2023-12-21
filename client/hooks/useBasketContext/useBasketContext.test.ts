@@ -8,5 +8,8 @@ test("returns the correct context values", () => {
     addToBasket: expect.any(Function),
     basket: [],
     basketTotal: 0,
+    closeBasketModal: expect.any(Function),
+    isBasketOpen: false,
+    openBasketModal: expect.any(Function),
   });
 });

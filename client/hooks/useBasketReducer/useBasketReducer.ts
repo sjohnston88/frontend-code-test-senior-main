@@ -11,6 +11,17 @@ const useBasketReducer = (
         ...state,
         basket: [...state.basket, action.payload],
         basketTotal: state.basketTotal + action.payload.quantity,
+        isBasketOpen: true,
+      };
+    case "OPEN_MODAL":
+      return {
+        ...state,
+        isBasketOpen: true,
+      };
+    case "CLOSE_MODAL":
+      return {
+        ...state,
+        isBasketOpen: false,
       };
     default:
       return state;

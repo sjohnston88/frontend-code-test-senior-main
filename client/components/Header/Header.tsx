@@ -5,7 +5,13 @@ import styles from "./Header.module.css";
 import localeStrings from "./strings.en-GB.json";
 
 const Header = () => {
-  const { basketTotal } = useBasketContext();
+  const { basketTotal, openBasketModal } = useBasketContext();
+
+  const handleOpenBasket = () => {
+    if (basketTotal > 0) {
+      openBasketModal();
+    }
+  };
 
   return (
     <div className={styles.header}>
@@ -17,7 +23,7 @@ const Header = () => {
           height="45"
         />
       </Link>
-      <button className={styles.basketIconButton}>
+      <button className={styles.basketIconButton} onClick={handleOpenBasket}>
         <Image
           src="/basket.svg"
           alt={localeStrings.basketAltText}

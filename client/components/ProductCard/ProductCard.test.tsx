@@ -1,6 +1,14 @@
 import { fireEvent, render, screen } from "@testing-library/react";
+import * as useBasketContextModule from "../../hooks/useBasketContext/useBasketContext";
 import localeStrings from "./strings.en-GB.json";
 import { ProductCard } from ".";
+
+jest.mock("../../hooks/useBasketContext/useBasketContext");
+
+const mockAddToBasket = jest.fn();
+useBasketContextModule.default.mockReturnValue({
+  addToBasket: mockAddToBasket,
+});
 
 const mockProps = {
   id: "1",
@@ -47,4 +55,18 @@ test("cannot use more than 10 quantity", () => {
   expect(screen.getByTitle(localeStrings.currentQuantity)).toHaveTextContent(
     "10"
   );
+});
+
+test("adds products to the cart", () => {
+  render(<ProductCard {...mockProps} />);
+
+  fireEvent.click(screen.getByText(localeStrings.callToAction));
+
+  expect(mockAddToBasket).toHaveBeenCalledTimes(1);
+  expect(mockAddToBasket).toHaveBeenCalledWith({
+    id: "1",
+    img_url: "https://i.ibb.co/2nzwxnQ/bulb.png",
+    name: "Energy saving light bulb",
+    quantity: 1,
+  });
 });

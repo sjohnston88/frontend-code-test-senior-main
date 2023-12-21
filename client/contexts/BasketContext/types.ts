@@ -8,10 +8,14 @@ export type BasketItem = {
 export type BasketContextReturn = {
   basket: BasketItem[];
   basketTotal: number;
-  addToBasket: (product: BasketItem) => void;;
+  isBasketOpen: boolean;
+  addToBasket: (product: BasketItem) => void;
+  openBasketModal: () => void;
+  closeBasketModal: () => void;
 };
 
 export type BasketState = {
   basket: BasketItem[];
   basketTotal: number;
+  isBasketOpen: boolean;
 };
