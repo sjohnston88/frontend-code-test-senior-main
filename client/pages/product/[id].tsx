@@ -1,18 +1,20 @@
 import { NextPageContext, GetServerSidePropsResult } from "next";
-import { ProductPage, ProductPageProps } from "../components/ProductPage";
-import { useProductQuery } from "../hooks/useProductQuery";
+import { ProductPage, ProductPageProps } from "../../components/ProductPage";
+import { useProductQuery } from "../../hooks/useProductQuery";
 
 export default ProductPage;
 
 export async function getServerSideProps(
   context: NextPageContext
 ): Promise<GetServerSidePropsResult<ProductPageProps>> {
+  const id = context.query.id as string;
+
   try {
-    // Harcoded value here to meet testing requirements
-    const product = await useProductQuery("1");
+    // Dynamic value here for futureproofing
+    const product = await useProductQuery(id);
 
     if (!product) {
-      throw new Error(`Error retrieving product`);
+      throw new Error(`Product ${id} not found`);
     }
 
     return {

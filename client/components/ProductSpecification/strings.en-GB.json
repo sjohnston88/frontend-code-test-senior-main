@@ -1,0 +1,10 @@
+{
+  "heading": "Specifications",
+  "productSpecifications": {
+    "brand": "Brand",
+    "weight": "Item weight (g)",
+    "dimensions": "Dimensions (cm)",
+    "model_code": "Item Model number",
+    "colour": "Colour"
+  }
+}

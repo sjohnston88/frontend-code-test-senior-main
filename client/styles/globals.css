@@ -8,6 +8,13 @@
   --sohoLights: #f050f8;
 
   --defaultGutter: 16px;
+  --defaultRadius: 8px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
 html,
