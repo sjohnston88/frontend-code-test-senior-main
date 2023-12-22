@@ -1,21 +1,21 @@
-.specificiation {
+.specification {
   padding: var(--defaultGutter);
   background-color: var(--siphon);
   line-height: 150%;
   font-weight: 200;
 }
 
-.specificiation h3 {
+.specification h3 {
   margin: 0;
   margin-bottom: var(--defaultGutter);
   font-weight: 500;
   letter-spacing: 0.1px;
 }
 
-.specificiation table {
+.specification table {
   width: 100%;
 }
 
-.specificiation table td {
+.specification table td {
   padding: 4px 0;
 }

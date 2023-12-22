@@ -6,9 +6,15 @@ import { ProductCard } from ".";
 jest.mock("../../hooks/useBasketContext/useBasketContext");
 
 const mockAddToBasket = jest.fn();
-useBasketContextModule.default.mockReturnValue({
+
+jest.mocked(useBasketContextModule.default).mockReturnValue({
+  basket: [],
+  closeBasketModal: jest.fn(),
+  basketTotal: 0,
+  isBasketOpen: false,
   addToBasket: mockAddToBasket,
-});
+  openBasketModal: jest.fn(),
+}); 
 
 const mockProps = {
   id: "1",

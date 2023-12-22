@@ -2,13 +2,15 @@ import { useReducer, createContext } from "react";
 import { useBasketReducer } from "../../hooks/useBasketReducer";
 import type { BasketContextReturn, BasketItem } from ".";
 
-export const initialBasketContext = {
+export const defaultFunction = () => null;
+
+const initialBasketContext = {
   basket: [],
   basketTotal: 0,
   isBasketOpen: false,
-  addToBasket: () => null,
-  openBasketModal: () => null,
-  closeBasketModal: () => null,
+  addToBasket: defaultFunction,
+  openBasketModal: defaultFunction,
+  closeBasketModal: defaultFunction,
 };
 
 export const initialBasketState = {

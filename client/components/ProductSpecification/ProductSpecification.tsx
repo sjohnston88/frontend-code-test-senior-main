@@ -11,7 +11,7 @@ interface ProductDescriptionProps {
 
 const ProductSpecification = (props: ProductDescriptionProps) => {
   return (
-    <div className={styles.specificiation}>
+    <div className={styles.specification}>
       <h3>{localeStrings.heading}</h3>
       <table>
         <tbody>

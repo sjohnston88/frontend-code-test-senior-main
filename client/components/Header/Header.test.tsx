@@ -10,10 +10,15 @@ jest.mock("next/link", () => ({ children, ...rest }) => (
 jest.mock("../../hooks/useBasketContext/useBasketContext");
 
 const mockOpenBasketModal = jest.fn();
-useBasketContextModule.default.mockReturnValue({
+
+jest.mocked(useBasketContextModule.default).mockReturnValue({
+  basket: [],
+  closeBasketModal: jest.fn(),
   basketTotal: 0,
+  isBasketOpen: false,
+  addToBasket: jest.fn(),
   openBasketModal: mockOpenBasketModal,
-});
+}); 
 
 test("renders the company logo", () => {
   render(<Header />);
@@ -37,10 +42,17 @@ test("does not open modal when basket is empty", () => {
 });
 
 test("opens modal when basket is populated", () => {
-  useBasketContextModule.default.mockReturnValue({
+  jest.mocked(useBasketContextModule.default).mockReturnValue({
+    basket: [
+      { id: "1", img_url: "/example.jpg", name: "Item 1", quantity: 2 },
+      { id: "2", img_url: "/example2.jpg", name: "Item 2", quantity: 1 },
+    ],
+    closeBasketModal: jest.fn(),
     basketTotal: 3,
+    isBasketOpen: false,
+    addToBasket: jest.fn(),
     openBasketModal: mockOpenBasketModal,
-  });
+  }); 
   render(<Header />);
 
   fireEvent.click(screen.getByTitle(localeStrings.basketCount));
